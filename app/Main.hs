@@ -1,6 +1,15 @@
 module Main where
 
-import Lib
+
+import Network.Wai.Handler.Warp
+
+
+import Echo
+
 
 main :: IO ()
-main = someFunc
+main = do
+  putStrLn $ "Starting server on port " ++ show port
+  run port echoApp
+  where
+    port = 3000
